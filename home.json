@@ -1,0 +1,319 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 859,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-usage"
+      },
+      "description": "Displays the total number of active alerts managed by Grafana Cloud AlertManager grouped by state.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "normal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "to": null
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pending"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "yellow",
+                        "index": 1
+                      },
+                      "to": 2
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0-75812",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-usage"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "sum by(state) (grafanacloud_grafana_instance_alerting_alerts{state!=\"nodata\"})",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Active Alerts by State (Over Time Selection)",
+      "type": "stat"
+    },
+    {
+      "description": "Shows the latest news updates from chosen sources, keeping you informed on current events.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "alertInstanceLabelFilter": "",
+        "alertName": "",
+        "dashboardAlerts": false,
+        "datasource": "-- Grafana --",
+        "groupBy": [],
+        "groupMode": "default",
+        "maxItems": 20,
+        "sortOrder": 1,
+        "stateFilter": {
+          "error": true,
+          "firing": true,
+          "noData": true,
+          "normal": false,
+          "pending": false
+        },
+        "viewMode": "list"
+      },
+      "pluginVersion": "11.3.0-75812",
+      "title": "Recent News Alerts",
+      "type": "alertlist"
+    },
+    {
+      "description": "Displays an embedded video frame streaming content from an external source.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "id": 7,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Video Wall",
+          "url": "/d/cdxmfhjpxj0u8b/video-wall?tab=queries&from=now-6h&to=now&timezone=browser"
+        }
+      ],
+      "options": {
+        "autoPlay": true,
+        "customBackground": false,
+        "geolocate": false,
+        "loop": true,
+        "videoId": "uAzUAZEKVJI",
+        "videoType": "youtube",
+        "videoURL": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+      },
+      "pluginVersion": "1.0.7",
+      "title": "Embedded Video: Live Video Feed",
+      "type": "innius-video-panel"
+    },
+    {
+      "description": "Display current news updates relevant to home management.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 4,
+      "options": {
+        "showImage": true
+      },
+      "pluginVersion": "11.3.0-75812",
+      "title": "Latest News Updates (RSS)",
+      "type": "news"
+    },
+    {
+      "description": "Displays a list of dashboards linked to the current Grafana instance.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 5,
+      "options": {
+        "includeVars": false,
+        "keepTime": false,
+        "maxItems": 10,
+        "query": "",
+        "showFolderNames": true,
+        "showHeadings": true,
+        "showRecentlyViewed": false,
+        "showSearch": false,
+        "showStarred": true,
+        "tags": []
+      },
+      "pluginVersion": "11.3.0-75812",
+      "title": "Starred Dashboards",
+      "type": "dashlist"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 26,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 3,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<iframe src=\"https://status.grafana.com/\" width=\"100%\" height=\"600px\" frameborder=\"0\"></iframe>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.3.0-75812",
+      "title": "Status Page (External)",
+      "type": "text"
+    }
+  ],
+  "preload": false,
+  "refresh": "auto",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Custom Home",
+  "uid": "bdxf89ntv0lj4g",
+  "version": 7,
+  "weekStart": ""
+}
