@@ -180,7 +180,7 @@ resource "grafana_team" "test_team" {
     provider = grafana.my_stack
   name = "_ Terraform Member "
   members = [
-    var.user
+    // ADD AN EXISTING MEMBERS EMAIL ADDRESS OF THE CLOUD ACCOUNT TO THIS 
   ]
   preferences {
     home_dashboard_uid = "bdxf89ntv0lj4g"
