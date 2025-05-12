@@ -180,7 +180,7 @@ resource "grafana_team" "test_team" {
     provider = grafana.my_stack
   name = "_ Terraform Member "
   members = [
-    "alice.martinez@email.com"
+    var.user
   ]
   preferences {
     home_dashboard_uid = "bdxf89ntv0lj4g"
