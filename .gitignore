@@ -1,3 +1,16 @@
-terraform.tfvars
-main.txt
-main.tf.txt
+# Terraform state files
+*.tfstate
+*.tfstate.*
+# Terraform plan files
+*.tfplan
+# Terraform workspace files
+.terraform/
+# Terraform variables
+*.tfvars
+# Terraform module cache
+.terraform.lock.hcl
+# Terraform provider binaries
+# Ignore any provider binaries that may be downloaded
+# during the Terraform init process
+# Ignore any local environment files
+.env
